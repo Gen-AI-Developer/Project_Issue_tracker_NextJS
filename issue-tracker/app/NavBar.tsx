@@ -13,7 +13,7 @@ const NavBar = () => {
         { label: 'Issues', href: '/issues' },
     ]
     return (
-        <nav className='flex space-x-12 border-b border-red-500	 mb-5 px-5 h-14 items-center'>
+        <nav className='flex m-3 drop-shadow-lx space-x-12 border rounded-md mb-5 px-5 h-14 items-center'>
 
             <Link className='animate-ping' href={'/'}><MdFitbit size={20} /></Link>
             <ul className='flex space-x-4'>

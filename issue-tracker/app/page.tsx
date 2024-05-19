@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <div className="flex flex-col m-3 p-4 rounded-lg shadow-lg bg-white items-center">
+    <div className="flex flex-col m-3 p-4 border rounded-lg shadow-md bg-white items-center">
       <h1 className="text-lg font-bold">Issue Tracking Application</h1>
       <p className="text-slate-700 dark:text-slate-500">Efficiently manage your team's tasks and projects with our cutting-edge
         issue tracking app. Designed for seamless collaboration, our platform

@@ -15,7 +15,7 @@ const NavBar = () => {
     return (
         <nav className='flex bg-white m-3 drop-shadow-lx space-x-12 border rounded-md mb-5 px-5 h-14 items-center'>
 
-            <Link className='animate-ping' href={'/'}><MdFitbit size={24} color='#242659' /></Link>
+            <Link className='flex font-bold' href={'/'}><MdFitbit size={24} color='#242659' /> IssueTracker</Link>
             <ul className='flex space-x-4'>
                 {links.map(link => <Link
                     key={link.href}

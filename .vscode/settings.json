@@ -1,0 +1,19 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 100,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "Issue-Tracker-Application-NextJs",
+            "group": "Developer",
+            "database": "issue-tracker",
+            "username": "root",
+            "password": "safdar205032"
+        }
+    ]
+}

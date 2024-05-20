@@ -1,8 +1,8 @@
 import { InputIcon } from '@radix-ui/react-icons'
 import { TextArea, TextField, Button, Heading } from '@radix-ui/themes'
+import Image from 'next/image'
 import React from 'react'
-// import Image from 'next/image';
-// import image from '../app/public/logo.svg'
+import logo from '@/app/public/IssuePage.svg'
 
 
 const NewIssue = () => {
@@ -23,18 +23,20 @@ const NewIssue = () => {
                     </TextField.Root>
 
                 </div>
-                <div className='mt-5'>
+                <div className='mt-5 '>
                     <TextArea variant="soft" placeholder="Add Description of the Issue" />
                 </div>
-                <div className="flex" >
-                    <Button variant='outline' radius='medium' style={{ marginTop: 10 }}>
+                <div className="flex " >
+                    <Button variant='classic' radius='medium' style={{ marginTop: 10 }}>
                         Push to DevSquads
                     </Button>
                 </div>
             </div>
-            <div className='border ml-4 rounded-md shadow-lg'>
-                {/* <Image src={image} alt={''} height={50} width={50}></Image> */}
-                <Heading>Keep it Simple, so our aliens can Understand</Heading>
+            <div className='ml-4 items-center'>
+                <div>
+                    <Image src={logo} height={350} width={350} alt='logo'></Image>
+                </div>
+                {/* <Heading>Keep it Simple, so our aliens can Understand</Heading> */}
             </div>
         </div>
     )

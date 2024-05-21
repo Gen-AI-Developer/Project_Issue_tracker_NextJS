@@ -8,8 +8,8 @@ import logo from '@/app/public/IssuePage.svg'
 const NewIssue = () => {
     return (
 
-        <div className='m-4 p-4 item flex-col border shadow-sm grid grid-cols-2 '>
-            <div className='max-w-xl space-y-3'>
+        <div className='m-4 item flex-col  grid grid-cols-2 '>
+            <div className='p-4 max-w-xl border rounded-xl shadow-sm space-y-3'>
                 <div>
                     <h1 className='text-sm font-semibold mb-2 '>
                         Fill the Form to Initiate an Issue
@@ -33,9 +33,9 @@ const NewIssue = () => {
                 </div>
             </div>
             <div className='ml-4 items-center'>
-                <div>
+                <div >
                     <Box maxWidth="540px">
-                        <Card size="3">
+                        <Card size="3" variant='surface'>
                             <Inset clip="padding-box" side="top" pb="current">
                                 <img
                                     src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"

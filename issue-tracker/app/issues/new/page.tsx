@@ -9,7 +9,7 @@ const NewIssue = () => {
     return (
 
         <div className='m-4 p-4 item flex-col border shadow-sm grid grid-cols-2 '>
-            <div>
+            <div className='max-w-xl space-y-3'>
                 <div>
                     <h1 className='text-sm font-semibold mb-2 '>
                         Fill the Form to Initiate an Issue

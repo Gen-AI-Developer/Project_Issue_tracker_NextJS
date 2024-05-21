@@ -9,7 +9,7 @@ import logo from '../app/public/logo.svg'
 
 const NavBar = () => {
     const currentPath = usePathname();
-    console.log(currentPath)
+    // console.log(currentPath)
     const links = [
         { label: 'Dashboard', href: '/' },
         { label: 'Issues', href: '/issues' },

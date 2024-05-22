@@ -3,12 +3,13 @@ import { TextArea, Text, TextField, Button, Heading, Box, Inset, Card, Strong } 
 import Image from 'next/image'
 import React from 'react'
 import logo from '@/app/public/IssuePage.svg'
+import Link from 'next/link'
 
 
 const NewIssue = () => {
     return (
 
-        <div className='m-4 item flex-col  grid grid-cols-2 '>
+        <div className='m-4 item flex-col  grid grid-cols-1 md:grid-cols-2'>
             <div className='p-4 max-w-xl border rounded-xl shadow-sm space-y-3'>
                 <div>
                     <h1 className='text-sm font-semibold mb-2 '>
@@ -26,14 +27,21 @@ const NewIssue = () => {
                 <div className='mt-5 '>
                     <TextArea variant="soft" placeholder="Add Description of the Issue" />
                 </div>
-                <div className="flex " >
+                <div className="flex" >
                     <Button variant='classic' radius='medium' style={{ marginTop: 10 }}>
-                        Push to DevSquads
+                        <Link href={"/"}>Push to DevSquads</Link>
                     </Button>
+                    <div className="ml-4" >
+                        <Button variant='classic' radius='medium' style={{ marginTop: 10 }}>
+                            <Link href={"/issues/howtoreport/"}>How to Report!</Link>
+                        </Button>
+                    </div>
+
                 </div>
+
             </div>
-            <div className='ml-4 items-center'>
-                <div >
+            <div className='ml-4'>
+                <div className='mt-6 md:mt-0'>
                     <Box maxWidth="540px">
                         <Card size="3" variant='surface'>
                             <Inset clip="padding-box" side="top" pb="current">
@@ -52,7 +60,10 @@ const NewIssue = () => {
 
                             <Text>
                                 <Strong>- DevSquads -</Strong>
-                                Welcome to DevSquads, the ultimate platform where professional developers systematically resolve your coding issues, ensuring that you never encounter the same errors again. Leveraging the power of Generative AI, our team offers precise and efficient solutions tailored to your specific problems. Whether you're dealing with a minor bug or a critical system failure, DevSquads is here to help you debug, optimize, and enhance your code, making your development process smoother and more productive.
+                                <div className='text-justify font-thin'>
+                                    Welcome to DevSquads, the ultimate platform where professional developers systematically resolve your coding issues, ensuring that you never encounter the same errors again. Leveraging the power of Generative AI, our team offers precise and efficient solutions tailored to your specific problems. Whether you're dealing with a minor bug or a critical system failure, DevSquads is here to help you debug, optimize, and enhance your code, making your development process smoother and more productive.
+
+                                </div>
                             </Text>
                         </Card>
                     </Box>

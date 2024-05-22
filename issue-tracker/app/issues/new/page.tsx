@@ -6,6 +6,8 @@ import React from 'react'
 import logo from '@/app/public/IssuePage.svg'
 import Link from 'next/link'
 import { useForm, SubmitHandler } from "react-hook-form"
+import SimpleMDE from "react-simplemde-editor";
+import "easymde/dist/easymde.min.css";
 
 interface IssueForm {
     title: string;
@@ -14,7 +16,7 @@ interface IssueForm {
 
 const NewIssue = () => {
     const { register } = useForm<IssueForm>();
-    console.log(register('title'))
+    // console.log(register('title'))
     return (
 
         <div className='m-4 item flex-col  grid grid-cols-1 md:grid-cols-2'>
@@ -25,7 +27,7 @@ const NewIssue = () => {
                     </h1>
                 </div>
                 <div className=''>
-                    <TextField.Root variant='soft' placeholder="Title of the Issue">
+                    <TextField.Root variant='soft' {...register('title')} placeholder="Title of the Issue">
                         <TextField.Slot className='font-semibold' >
                             <InputIcon height="16" width="16" />
                         </TextField.Slot>
@@ -33,7 +35,7 @@ const NewIssue = () => {
 
                 </div>
                 <div className='mt-5 '>
-                    <TextArea variant='soft' placeholder="Add Description of the Issue" />
+                    <SimpleMDE placeholder="Add Description of the Issue" />
                 </div>
                 <div className="flex" >
                     <Button variant='classic' radius='medium' style={{ marginTop: 10 }}>

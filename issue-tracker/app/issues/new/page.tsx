@@ -4,8 +4,6 @@ import Image from 'next/image'
 import React from 'react'
 import logo from '@/app/public/IssuePage.svg'
 import Link from 'next/link'
-
-
 const NewIssue = () => {
     return (
 
@@ -17,7 +15,7 @@ const NewIssue = () => {
                     </h1>
                 </div>
                 <div className=''>
-                    <TextField.Root variant="soft" placeholder="Title of the Issue">
+                    <TextField.Root variant='soft' placeholder="Title of the Issue">
                         <TextField.Slot className='font-semibold' >
                             <InputIcon height="16" width="16" />
                         </TextField.Slot>
@@ -25,7 +23,7 @@ const NewIssue = () => {
 
                 </div>
                 <div className='mt-5 '>
-                    <TextArea variant="soft" placeholder="Add Description of the Issue" />
+                    <TextArea variant='soft' placeholder="Add Description of the Issue" />
                 </div>
                 <div className="flex" >
                     <Button variant='classic' radius='medium' style={{ marginTop: 10 }}>

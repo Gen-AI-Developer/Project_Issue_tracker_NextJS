@@ -5,7 +5,7 @@ import Image from 'next/image'
 import React from 'react'
 import logo from '@/app/public/IssuePage.svg'
 import Link from 'next/link'
-import { useForm, SubmitHandler } from "react-hook-form"
+import { useForm, SubmitHandler, Controller, Form } from "react-hook-form"
 import SimpleMDE from "react-simplemde-editor";
 import "easymde/dist/easymde.min.css";
 
@@ -15,12 +15,12 @@ interface IssueForm {
 }
 
 const NewIssue = () => {
-    const { register } = useForm<IssueForm>();
+    const { register, control } = useForm<IssueForm>();
     // console.log(register('title'))
     return (
 
         <div className='m-4 item flex-col  grid grid-cols-1 md:grid-cols-2'>
-            <div className='p-4 max-w-xl border rounded-xl shadow-sm space-y-3'>
+            <Form className='p-4 max-w-xl border rounded-xl shadow-sm space-y-3' onSubmit={(data) => console.log(data)}>
                 <div>
                     <h1 className='text-sm font-semibold mb-2 '>
                         Fill the Form to Initiate an Issue
@@ -35,11 +35,16 @@ const NewIssue = () => {
 
                 </div>
                 <div className='mt-5 '>
-                    <SimpleMDE placeholder="Add Description of the Issue" />
+                    <Controller
+                        name="description"
+                        control={control}
+                        render={(field) => <SimpleMDE placeholder="Add Description of the Issue"  {...field} />}
+                    />
+
                 </div>
                 <div className="flex" >
-                    <Button variant='classic' radius='medium' style={{ marginTop: 10 }}>
-                        <Link href={"/"}>Push to DevSquads</Link>
+                    <Button type='submit' variant='classic' radius='medium' style={{ marginTop: 10 }}>
+                        Push to DevSquads
                     </Button>
                     <div className="ml-4" >
                         <Button variant='classic' radius='medium' style={{ marginTop: 10 }}>
@@ -49,7 +54,7 @@ const NewIssue = () => {
 
                 </div>
 
-            </div>
+            </Form>
             <div className='ml-4'>
                 <div className='mt-6 md:mt-0'>
                     <Box maxWidth="540px">

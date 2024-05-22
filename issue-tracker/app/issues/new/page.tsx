@@ -1,10 +1,20 @@
+"use client";
 import { InputIcon } from '@radix-ui/react-icons'
 import { TextArea, Text, TextField, Button, Heading, Box, Inset, Card, Strong } from '@radix-ui/themes'
 import Image from 'next/image'
 import React from 'react'
 import logo from '@/app/public/IssuePage.svg'
 import Link from 'next/link'
+import { useForm, SubmitHandler } from "react-hook-form"
+
+interface IssueForm {
+    title: string;
+    description: string;
+}
+
 const NewIssue = () => {
+    const { register } = useForm<IssueForm>();
+    console.log(register('title'))
     return (
 
         <div className='m-4 item flex-col  grid grid-cols-1 md:grid-cols-2'>

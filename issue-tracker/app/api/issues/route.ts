@@ -1,12 +1,19 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { PrismaClient } from '@prisma/client';
+import { Value } from '@radix-ui/themes/dist/esm/components/data-list.js';
 
 const prisma = new PrismaClient();
 
 const createIssueSchema = z.object({
     title: z.string().min(1).max(255),
-    description: z.string().min(1)
+    description: z.string().min(1),
+    pirority: z.enum([
+        "NORMAL",
+        "URGENT",
+        "PIRORITY",
+        "CRITICAL"
+    ])
 }).strict(); // Ensures no extra properties are allowed
 
 export async function POST(request: NextRequest) {
@@ -18,10 +25,10 @@ export async function POST(request: NextRequest) {
             return NextResponse.json(validation.error.errors, { status: 400 });
         }
 
-        const { title, description } = validation.data;
+        const { title, description, pirority } = validation.data;
 
         const newIssue = await prisma.issue.create({
-            data: { title, description }
+            data: { title, description, pirority }
         });
 
         return NextResponse.json(newIssue, { status: 201 });

@@ -22,12 +22,12 @@ const NewIssue = () => {
             <Form.Root>
                 <Form.Field className="grid mb-[10px]" name="email">
                     <div className="flex items-baseline justify-between">
-                        <Form.Label className="text-[15px] font-medium leading-[35px]  text-zinc-600">Title</Form.Label>
+                        <Form.Label className="text-[15px] font-medium leading-[35px]  text-zinc-600">Email</Form.Label>
                         <Form.Message className="text-[13px] text-zinc-600 opacity-[0.8]" match="valueMissing">
-                            Title of Bug
+                            Please enter your email
                         </Form.Message>
                         <Form.Message className="text-[13px]  text-zinc-600 opacity-[0.8]" match="typeMismatch">
-                            Description of the Bug
+                            Please provide a valid email
                         </Form.Message>
                     </div>
                     <Form.Control asChild>

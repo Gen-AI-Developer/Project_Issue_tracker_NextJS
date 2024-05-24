@@ -1,12 +1,10 @@
 "use client";
-import { InputIcon } from '@radix-ui/react-icons'
 import { TextArea, Text, TextField, Button, Heading, Box, Inset, Card, Strong } from '@radix-ui/themes'
-import Image from 'next/image'
 import React from 'react'
 import logo from '@/app/public/IssuePage.svg'
-import Link from 'next/link'
-import { useForm, SubmitHandler, Controller, Form } from "react-hook-form"
+import { useForm, SubmitHandler, Controller } from "react-hook-form"
 import SimpleMDE from "react-simplemde-editor";
+import * as Form from '@radix-ui/react-form'
 import "easymde/dist/easymde.min.css";
 
 interface IssueForm {
@@ -21,41 +19,47 @@ const NewIssue = () => {
     return (
 
         <div className='m-4 item flex-col  grid grid-cols-1 md:grid-cols-2'>
-            <Form className='p-4 max-w-xl border rounded-xl shadow-sm space-y-3' onSubmit={(data) => console.log(data)}>
-                <div>
-                    <h1 className='text-sm font-semibold mb-2 '>
-                        Fill the Form to Initiate an Issue
-                    </h1>
-                </div>
-                <div className=''>
-                    <TextField.Root variant='soft' {...register('title')} placeholder="Title of the Issue">
-                        <TextField.Slot className='font-semibold' >
-                            <InputIcon height="16" width="16" />
-                        </TextField.Slot>
-                    </TextField.Root>
-
-                </div>
-                <div className='mt-5 '>
-                    <Controller
-                        name="description"
-                        control={control}
-                        render={(field) => <SimpleMDE placeholder="Add Description of the Issue"  {...field} />}
-                    />
-
-                </div>
-                <div className="flex" >
-                    <Button type='submit' variant='classic' radius='medium' style={{ marginTop: 10 }}>
-                        Push to DevSquads
-                    </Button>
-                    <div className="ml-4" >
-                        <Button variant='classic' radius='medium' style={{ marginTop: 10 }}>
-                            <Link href={"/issues/howtoreport/"}>How to Report!</Link>
-                        </Button>
+            <Form.Root>
+                <Form.Field className="grid mb-[10px]" name="email">
+                    <div className="flex items-baseline justify-between">
+                        <Form.Label className="text-[15px] font-medium leading-[35px]  text-zinc-600">Email</Form.Label>
+                        <Form.Message className="text-[13px] text-zinc-600 opacity-[0.8]" match="valueMissing">
+                            Please enter your email
+                        </Form.Message>
+                        <Form.Message className="text-[13px]  text-zinc-600 opacity-[0.8]" match="typeMismatch">
+                            Please provide a valid email
+                        </Form.Message>
                     </div>
-
-                </div>
-
-            </Form>
+                    <Form.Control asChild>
+                        <input
+                            className="box-border w-full bg-blackA2 shadow-blackA6 inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none text-white shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6"
+                            type="email"
+                            required
+                        />
+                    </Form.Control>
+                </Form.Field>
+                <Form.Field className="grid mb-[10px]" name="question">
+                    <div className="flex items-baseline justify-between">
+                        <Form.Label className="text-[15px] font-medium leading-[35px]  text-zinc-600">
+                            Question
+                        </Form.Label>
+                        <Form.Message className="text-[13px]  text-zinc-600 opacity-[0.8]" match="valueMissing">
+                            Please enter a question
+                        </Form.Message>
+                    </div>
+                    <Form.Control asChild>
+                        <textarea
+                            className="box-border w-full bg-blackA2 shadow-blackA6 inline-flex appearance-none items-center justify-center rounded-[4px] p-[10px] text-[15px] leading-none text-white shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6 resize-none"
+                            required
+                        />
+                    </Form.Control>
+                </Form.Field>
+                <Form.Submit asChild>
+                    <button className="box-border w-full text-white hover:bg-mauve3 inline-flex h-[35px] items-center justify-center rounded-[4px] bg-indigo-600 px-[15px] font-medium leading-none shadow-[0_2px_10px] focus:shadow-[0_0_0_2px] focus:shadow-black focus:outline-none mt-[10px]">
+                        Post question
+                    </button>
+                </Form.Submit>
+            </Form.Root>
             <div className='ml-4'>
                 <div className='mt-6 md:mt-0'>
                     <Box maxWidth="540px">

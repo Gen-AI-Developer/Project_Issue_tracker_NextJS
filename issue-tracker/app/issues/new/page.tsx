@@ -12,6 +12,7 @@ import "easymde/dist/easymde.min.css";
 interface IssueForm {
     title: string;
     description: string;
+    pirority: string;
 }
 
 const NewIssue = () => {

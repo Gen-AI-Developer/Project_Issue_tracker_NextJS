@@ -18,8 +18,20 @@ const NewIssue = () => {
     // console.log(register('title'))
     return (
 
-        <div className='m-4 p-3 item flex-col rounded border grid grid-cols-1 md:grid-cols-2'>
-            
+        <div className='m-4 p-3 item bg-violet-100 flex-col rounded border grid grid-cols-1 md:grid-cols-2'>
+            <Form.Root className='w-[240px]'>
+                <Form.Field name='title'>
+                    <div className="flex items-baseline justify-between">
+                        <Form.Label className="text-[15px] font-medium leading-[35px] text-white">Email</Form.Label>
+                        <Form.Message className="text-[13px] text-white opacity-[0.8]" match="valueMissing">
+                            Please enter your Title
+                        </Form.Message>
+                        <Form.Message className="text-[13px] text-white opacity-[0.8]" match="typeMismatch">
+                            Please provide a valid email
+                        </Form.Message>
+                    </div>
+                </Form.Field>
+            </Form.Root>
             <div className='ml-4'>
                 <div className='mt-6 md:mt-0'>
                     <Box maxWidth="540px">
